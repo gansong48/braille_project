@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.techtown.dotanddoc">
+    <!--카메라 권한-->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <!--갤러리 권한-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <!--amplify 권한-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+
+    <application
+        android:name=".AmplifyClass"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_dotanddoc"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_dotanddoc_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DotAndDoc"
+        android:requestLegacyExternalStorage="true">
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.blacklog.takepicture.fileprovider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+        <activity
+            android:name=".CustomProgressDialog"
+            tools:ignore="Instantiatable" />
+
+        <activity
+            android:name=".MultiImageOCRActivity"
+            tools:ignore="Instantiatable" />
+
+        <activity
+            android:name=".BeforeTxtBrailleActivity"
+            tools:ignore="Instantiatable" />
+
+        <activity
+            android:name=".TxtBrailleActivity"
+            tools:ignore="Instantiatable" />
+
+        <activity
+            android:name=".OCRActivity"
+            tools:ignore="Instantiatable" />
+
+        <activity
+            android:name=".WriteActivity"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".AfterCameraActivity"
+            tools:ignore="Instantiatable" />
+
+        <activity
+            android:name=".BookmarkBrailleListItem"
+            tools:ignore="Instantiatable" />
+
+        <activity
+            android:name=".TransformedBrailleActivity"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".CameraAndGalleryActivity"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".TransformedDocActivity"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".BookmarkActivity"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".SetActivity"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".TextSelectActivity"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".SaveCompleteActivity"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.DotAndDoc"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

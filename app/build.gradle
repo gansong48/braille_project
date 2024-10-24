@@ -1,0 +1,93 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    viewBinding {
+        enabled = true
+    }
+
+    packagingOptions {
+        pickFirst "androidsupportmultidexversion.txt"
+    }
+
+
+    defaultConfig {
+        applicationId "org.techtown.dotanddoc"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
+    // aws amplify
+    compileOptions {
+        // Support for Java 8 features
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0' // DrawerLayout
+    implementation 'com.google.android.material:material:1.0.0' // NavigationView
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation "androidx.cardview:cardview:1.0.0"
+
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    // ml kit를 위한 한국어 스크립트
+    implementation 'com.google.mlkit:text-recognition-korean:16.0.0-beta1'
+    implementation 'com.android.support:multidex:1.0.3'
+
+    // aws amplify
+    // Amplify core dependency
+    implementation 'com.amplifyframework:core:1.28.1'
+    // Support for Java 8 features
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+    // amplify storage
+    implementation 'com.amplifyframework:aws-storage-s3:1.28.1'
+    // amplify cognito
+    implementation 'com.amplifyframework:aws-auth-cognito:1.28.1'
+}

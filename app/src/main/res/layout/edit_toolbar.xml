@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--메인 레이아웃-->
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/main_layout"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="59dp" />
+
+    <include
+        android:id="@+id/include2"
+        layout="@layout/edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="600dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/include"
+        app:layout_constraintVertical_bias="0.835" />
+
+    <ImageButton
+        android:id="@+id/backBtn"
+        android:layout_width="28dp"
+        android:layout_height="27dp"
+        android:background="@drawable/ic_back"
+        app:layout_constraintBottom_toTopOf="@+id/include2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.326"/>
+
+    <Button
+        android:id="@+id/finish_button"
+        android:layout_width="46dp"
+        android:layout_height="26dp"
+        android:layout_gravity="center"
+        android:background="@drawable/button_border"
+        android:backgroundTint="@color/darkGreen"
+        android:text="완료"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/include2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toEndOf="@+id/backBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.365" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
